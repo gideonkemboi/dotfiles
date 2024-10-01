@@ -55,6 +55,10 @@ local plugins = {
     "numToStr/Comment.nvim",
     opts = {},
   },
+  {
+    "jannis-baum/vivify.vim",
+    lazy = false,
+  },
 }
 
 return plugins
