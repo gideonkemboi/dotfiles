@@ -7,7 +7,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- BarBar mappings
 
@@ -57,3 +57,7 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- Other:
 -- :BarbarEnable - enables barbar (enabled by default)
 -- :BarbarDisable - very bad command, should never be used
+
+-- DAP
+map("n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", { desc = "Add breakpoint at line" })
+map("n", "<leader>dr", "<Cmd>DapContinue<CR>", { desc = "Run or continue the debugger" })
