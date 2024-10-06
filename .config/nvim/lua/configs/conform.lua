@@ -6,8 +6,9 @@ local options = {
     python = { "black" },
     javascript = { "prettierd", "prettier" },
     typescript = { "prettierd", "prettier" },
-    prisma = {"prettierd", "prettier"},
-    pug = {"prettierd", "prettier"},
+    prisma = { "prettierd", "prettier" },
+    pug = { "prettierd", "prettier" },
+    json = { "prettierd", "prettier" },
   },
 
   format_on_save = {
