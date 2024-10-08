@@ -61,3 +61,11 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- DAP
 map("n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", { desc = "Add breakpoint at line" })
 map("n", "<leader>dr", "<Cmd>DapContinue<CR>", { desc = "Run or continue the debugger" })
+
+-- Menu
+map("n", "<RightMouse>", function()
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+  require("menu").open(options, { mouse = true })
+end, {})

@@ -128,6 +128,8 @@ local plugins = {
       },
     },
   },
+  { "nvchad/volt", lazy = true },
+  { "nvchad/menu", lazy = true },
 }
 
 return plugins
