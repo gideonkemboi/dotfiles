@@ -130,6 +130,12 @@ local plugins = {
   },
   { "nvchad/volt", lazy = true },
   { "nvchad/menu", lazy = true },
+  {
+    "barrett-ruth/live-server.nvim",
+    build = "npm install -g live-server",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = true,
+  },
 }
 
 return plugins
