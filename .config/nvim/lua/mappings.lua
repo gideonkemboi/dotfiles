@@ -61,6 +61,9 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 -- DAP
 map("n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", { desc = "Add breakpoint at line" })
 map("n", "<leader>dr", "<Cmd>DapContinue<CR>", { desc = "Run or continue the debugger" })
+map("n", "<leader>dpr", function()
+  require("dap-python").test_method()
+end)
 
 -- Menu
 map("n", "<RightMouse>", function()

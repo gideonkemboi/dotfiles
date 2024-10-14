@@ -86,6 +86,15 @@ local plugins = {
     end,
   },
   {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    lazy = false,
+  },
+  {
     "wakatime/vim-wakatime",
     lazy = false,
   },

@@ -35,3 +35,5 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require("dap-python").setup "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"

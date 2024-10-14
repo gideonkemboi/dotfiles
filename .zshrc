@@ -67,6 +67,7 @@ zstyle ':completion:*' menu no
 # Aliases
 alias ls='ls --color'
 alias vim='nvim'
+alias python='python3'
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
