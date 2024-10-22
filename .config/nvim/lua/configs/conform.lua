@@ -7,6 +7,8 @@ local options = {
     javascript = { "prettierd", "prettier" },
     typescript = { "prettierd", "prettier" },
     json = { "prettierd", "prettier" },
+    yaml = { "prettierd", "prettier" },
+    dockerfile = { "shfmt" },
   },
 
   format_on_save = {

@@ -37,3 +37,14 @@ vim.schedule(function()
 end)
 
 require("dap-python").setup "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+
+-- Function to set filetype based on a pattern
+local function set_filetype(pattern, filetype)
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = pattern,
+    command = "set filetype=" .. filetype,
+  })
+end
+
+-- Set the filetype to 'yaml.docker-compose' for docker-compose files
+set_filetype({ "docker-compose.yml", "docker-compose.yaml" }, "yaml.docker-compose")
