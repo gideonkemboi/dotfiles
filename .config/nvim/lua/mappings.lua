@@ -7,7 +7,11 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- Map Ctrl + S to save and exit insert mode when in insert mode
+map("i", "<C-s>", "<cmd>w<CR><Esc>", { noremap = true, silent = true })
+
+-- Just save in normal and visual modes
+map({ "n", "v" }, "<C-s>", "<cmd>w<CR>", { noremap = true, silent = true })
 
 -- BarBar mappings
 

@@ -48,3 +48,11 @@ end
 
 -- Set the filetype to 'yaml.docker-compose' for docker-compose files
 set_filetype({ "docker-compose.yml", "docker-compose.yaml" }, "yaml.docker-compose")
+
+-- Tailwind Classes sort on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.vue", "*.svelte" }, -- Filetypes to apply sorting to
+  callback = function()
+    vim.cmd "TailwindSort"
+  end,
+})

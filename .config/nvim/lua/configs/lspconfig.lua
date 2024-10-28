@@ -6,7 +6,6 @@ local lspconfig = require "lspconfig"
 -- EXAMPLE
 local servers = {
   "html",
-  "cssls",
   "ts_ls",
   "jsonls",
   "prismals",
@@ -15,6 +14,8 @@ local servers = {
   "dockerls",
   "docker_compose_language_service",
   "marksman",
+  "tailwindcss",
+  "emmet_ls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -26,6 +27,36 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.cssls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    css = { validate = true, lint = {
+      unknownAtRules = "ignore",
+    } },
+  },
+}
+
+lspconfig.emmet_ls.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "css",
+    "eruby",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "less",
+    "sass",
+    "scss",
+    "svelte",
+    "pug",
+    "typescriptreact",
+    "vue",
+  },
+}
 
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
