@@ -1,10 +1,16 @@
 # My dotfiles
 
-This directory contains the dotfiles for my sytem
+This repo contains the dotfiles for my sytem
+
+
+| Purpose | Tool |
+|---------|------|
+| Text editor | Neovim |
+| Shell | zsh |
 
 ## Requirements
 
-Ensure you have the following install in the sytem:
+Ensure you have the following installed in the sytem:
 
 1. Git
 1. Stow
