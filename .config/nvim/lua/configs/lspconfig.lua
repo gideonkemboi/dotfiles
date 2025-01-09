@@ -39,6 +39,8 @@ lspconfig.cssls.setup {
   },
 }
 
+lspconfig.tailwindcss.setup {}
+
 lspconfig.emmet_ls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
@@ -55,6 +57,13 @@ lspconfig.emmet_ls.setup {
     "pug",
     "typescriptreact",
     "vue",
+  },
+  init_options = {
+    html = {
+      options = {
+        ["bem.enabled"] = true,
+      },
+    },
   },
 }
 

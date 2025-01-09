@@ -53,6 +53,15 @@ set_filetype({ "docker-compose.yml", "docker-compose.yaml" }, "yaml.docker-compo
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.vue", "*.svelte" }, -- Filetypes to apply sorting to
   callback = function()
-    vim.cmd "TailwindSort"
+    if vim.fn.exists ":TailwindSort" == 2 then
+      local clients = vim.lsp.get_clients { name = "tailwindcss" }
+      if #clients > 0 then
+        vim.cmd "TailwindSort"
+      else
+        vim.notify("Tailwind CSS language server is not running", vim.log.levels.WARN)
+      end
+    else
+      vim.notify("TailwindSort command not found", vim.log.levels.WARN)
+    end
   end,
 })
