@@ -7,6 +7,7 @@ This repo contains the dotfiles for my sytem
 |---------|------|
 | Text editor | Neovim |
 | Shell | zsh |
+| Version Control | Git |
 
 ## Requirements
 

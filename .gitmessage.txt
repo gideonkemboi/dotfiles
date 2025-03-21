@@ -1,0 +1,21 @@
+# <type>[optional scope]: <subject> (50 characters or less)
+
+# <blank line>
+
+# <body>
+# Describe what the change is and why it's made, focusing on the 
+# problem being solved rather than how it was implemented. Wrap 
+# this text at 72 characters.
+# 
+# - Bullet points can be used if necessary, starting with a hyphen
+#   or asterisk followed by a space.
+#
+# Further explanations and paragraphs can be added after blank lines.
+#
+# If the change introduces breaking changes, add a footer like this:
+# BREAKING CHANGE: <description of breaking changes>
+#
+# References:
+# Resolves: #123
+# See also: #456, #789
+
