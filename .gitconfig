@@ -1,0 +1,19 @@
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[include]
+    path = ~/.gitconfig_local
+[init]
+    default = branch
+	  defaultBranch = main
+[pull]
+    rebase = false
+[color]
+    ui = auto
+[core]
+	  editor = nvim
+	  autocrlf = input
+[commit]
+	  template = /home/gdn/.gitmessage.txt
