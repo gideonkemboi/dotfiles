@@ -16,4 +16,10 @@
 	  editor = nvim
 	  autocrlf = input
 [commit]
-	  template = /home/gdn/.gitmessage.txt
+  template = /home/gdn/.gitmessage.txt
+
+[diff]
+  tool = nvimdiff
+
+[difftool]
+  prompt = true 
