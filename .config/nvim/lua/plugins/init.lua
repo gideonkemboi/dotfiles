@@ -5,7 +5,6 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -33,5 +32,11 @@ return {
         enable = true,
       },
     },
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("configs.nvimtree")
+    end,
   },
 }
