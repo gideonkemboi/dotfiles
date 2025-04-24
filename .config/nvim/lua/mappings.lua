@@ -76,3 +76,15 @@ map("n", "<RightMouse>", function()
   local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
   require("menu").open(options, { mouse = true })
 end, {})
+
+-- toggle nvimtree even in terminal mode
+map({ "n", "t" }, "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+
+-- override <leader>x keymap in help windows only
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "help",
+  callback = function()
+    -- buffer-local map: <leader>x will now do :close
+    vim.keymap.set("n", "<leader>x", "<cmd>close<CR>", { buffer = true, silent = true, desc = "Close help window" })
+  end,
+})
