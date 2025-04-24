@@ -15,6 +15,9 @@ export NVM_DIR="$HOME/.nvm"
 # Go PATH environment variable
 export PATH=$PATH:/usr/local/go/bin
 
+# JetBrains PATH environment variable
+export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -68,7 +71,6 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 # Aliases
-alias ls='ls --color'
 alias vim='nvim'
 alias python='python3'
 
