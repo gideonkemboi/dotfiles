@@ -16,6 +16,7 @@ local servers = {
   "marksman",
   "tailwindcss",
   "emmet_ls",
+  "jdtls",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

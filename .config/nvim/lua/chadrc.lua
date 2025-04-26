@@ -5,6 +5,14 @@
 ---@type ChadrcConfig
 local M = {}
 
+-- 1. override vim.notify to use nvim-notify
+vim.notify = require "notify"
+
+-- 2. configure nvim-notify
+require("notify").setup {
+  top_down = true,
+}
+
 M.base46 = {
   theme = "tokyodark",
 

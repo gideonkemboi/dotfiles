@@ -24,7 +24,7 @@ return {
         "javascript",
         "typescript",
         "tsx",
-        "vue",
+        "java",
       },
       sync_install = true,
       auto_install = true,
@@ -36,7 +36,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require("configs.nvimtree")
+      require "configs.nvimtree"
     end,
   },
 }

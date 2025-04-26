@@ -88,3 +88,19 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>x", "<cmd>close<CR>", { buffer = true, silent = true, desc = "Close help window" })
   end,
 })
+
+-- nvim-java
+-- build & run
+map("n", "<leader>wb", "<Cmd>JavaBuildBuildWorkspace<CR>", opts)
+map("n", "<leader>rr", "<Cmd>JavaRunnerRunMain<CR>", opts)
+map("n", "<leader>rs", "<Cmd>JavaRunnerStopMain<CR>", opts)
+map("n", "<leader>rl", "<Cmd>JavaRunnerToggleLogs<CR>", opts)
+
+-- debug
+map("n", "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+map("n", "<leader>dr", "<Cmd>lua require'dap'.continue()<CR>", opts)
+
+-- tests
+map("n", "<leader>tc", "<Cmd>JavaTestRunCurrentClass<CR>", opts)
+map("n", "<leader>tm", "<Cmd>JavaTestRunCurrentMethod<CR>", opts)
+map("n", "<leader>td", "<Cmd>JavaTestDebugCurrentClass<CR>", opts)

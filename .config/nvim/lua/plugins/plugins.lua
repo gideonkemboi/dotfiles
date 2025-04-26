@@ -189,6 +189,22 @@ local plugins = {
       -- log_level = 'debug',
     },
   },
+  {
+    "nvim-java/nvim-java",
+    lazy = false,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      require("java").setup {}
+      require("lspconfig").jdtls.setup {}
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+  },
 }
 
 return plugins
