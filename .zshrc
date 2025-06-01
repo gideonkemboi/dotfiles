@@ -18,6 +18,11 @@ export PATH=$PATH:/usr/local/go/bin
 # JetBrains PATH environment variable
 export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
+# Local-only environment variables file
+if [ -f ~/.env.local ]; then
+  source ~/.env.local
+fi
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -88,3 +93,6 @@ zinit light-mode for \
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Give hints on how to install missing commands
+[[ -r /etc/zsh_command_not_found ]] && . /etc/zsh_command_not_found
