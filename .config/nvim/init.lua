@@ -51,17 +51,28 @@ set_filetype({ "docker-compose.yml", "docker-compose.yaml" }, "yaml.docker-compo
 
 -- Tailwind Classes sort on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.vue", "*.svelte" }, -- Filetypes to apply sorting to
-  callback = function()
-    if vim.fn.exists ":TailwindSort" == 2 then
-      local clients = vim.lsp.get_clients { name = "tailwindcss" }
-      if #clients > 0 then
-        vim.cmd "TailwindSort"
-      else
-        vim.notify("Tailwind CSS language server is not running", vim.log.levels.WARN)
-      end
-    else
-      vim.notify("TailwindSort command not found", vim.log.levels.WARN)
+  pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.vue", "*.svelte" },
+  callback = function(ctx)
+    -- 1. Find the nearest package.json upward from the current file
+    local pkgpath = vim.fs.find("package.json", { path = vim.fs.dirname(ctx.file), upward = true })[1]
+    if not pkgpath then
+      return
     end
+
+    -- 2. Read & decode package.json
+    local lines = vim.fn.readfile(pkgpath)
+    local ok, pkg = pcall(vim.fn.json_decode, table.concat(lines, "\n"))
+    if not ok or type(pkg) ~= "table" then
+      return
+    end
+
+    -- 3. Merge deps & devDeps, bail if tailwindcss not found
+    local deps = vim.tbl_extend("force", pkg.dependencies or {}, pkg.devDependencies or {})
+    if not deps["tailwindcss"] then
+      return
+    end
+
+    -- 4. We’re in a Tailwind project—run the sort
+    vim.cmd "TailwindSort"
   end,
 })

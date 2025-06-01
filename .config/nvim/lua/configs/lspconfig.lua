@@ -40,8 +40,6 @@ lspconfig.cssls.setup {
   },
 }
 
-lspconfig.tailwindcss.setup {}
-
 lspconfig.emmet_ls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
